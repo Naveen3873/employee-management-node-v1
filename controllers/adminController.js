@@ -35,18 +35,18 @@ const approveUser = async (req, res) => {
         user.isApproved = true;
         await user.save();
         console.log("user---",user);
-        const websiteUrl = "http://localhost:3000";
-        await sendEmail({
-            to: user.email,
-            subject: 'Account Approved',
-            html: `<body style="margin: 0; padding: 0; font-family: 'Arial', sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f0f2f5;">
-                    <div style="background: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); width: 90%; max-width: 400px; text-align: center;">
-                        <h4 style="color: #4CAF50; margin-bottom: 20px;">Account Approved Successfully</h4>
-                        <p style="color: #555; margin-bottom: 20px;">You can Login to your account with the below link</p>
-                        <a href="${websiteUrl}" style="display: inline-block; padding: 12px 24px; border: none; background-color: #4CAF50; color: #fff; border-radius: 5px; text-decoration: none; font-weight: bold; cursor: pointer;">Go to Login</a>
-                    </div>
-                </body>`
-        });
+        // const websiteUrl = "http://localhost:3000";
+        // await sendEmail({
+        //     to: user.email,
+        //     subject: 'Account Approved',
+        //     html: `<body style="margin: 0; padding: 0; font-family: 'Arial', sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f0f2f5;">
+        //             <div style="background: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); width: 90%; max-width: 400px; text-align: center;">
+        //                 <h4 style="color: #4CAF50; margin-bottom: 20px;">Account Approved Successfully</h4>
+        //                 <p style="color: #555; margin-bottom: 20px;">You can Login to your account with the below link</p>
+        //                 <a href="${websiteUrl}" style="display: inline-block; padding: 12px 24px; border: none; background-color: #4CAF50; color: #fff; border-radius: 5px; text-decoration: none; font-weight: bold; cursor: pointer;">Go to Login</a>
+        //             </div>
+        //         </body>`
+        // });
         res.json({ message: 'User approved' });
     } catch (error) {
         console.log("error-0-0--",error);
