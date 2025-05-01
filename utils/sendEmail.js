@@ -1,7 +1,6 @@
 const nodemailer = require('nodemailer');
 
 const sendEmail = async (options) => {
-    console.log("sendEmail--------",options);
     // Email send to the user
     try {
         const transporter = nodemailer.createTransport({
@@ -21,7 +20,6 @@ const sendEmail = async (options) => {
 
         await transporter.sendMail(mailOptions);
 
-        console.log('Email sent successfully');
     } catch (error) {
         console.error('Error sending email:', error);
         throw new Error('Failed to send email');

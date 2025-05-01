@@ -67,7 +67,6 @@ const loginUser = async (req, res) => {
         let { isAdmin} = user;
         res.json({ isAdmin,token });
     } catch (error) {
-        console.log(error);
         res.status(500).json({ message: 'Server error' });
     }
 };
