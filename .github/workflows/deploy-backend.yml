@@ -23,4 +23,4 @@ jobs:
             cd /home/ubuntu/projects/emp-management/employee-management-node-v1
             git pull origin preprod
             npm install
-            pm2 restart backend || pm2 start index.js --name backend
+            pm2 restart backend || pm2 start server.js --name backend
