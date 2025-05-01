@@ -34,7 +34,6 @@ const approveUser = async (req, res) => {
 
         user.isApproved = true;
         await user.save();
-        console.log("user---",user);
         // const websiteUrl = "http://localhost:3000";
         // await sendEmail({
         //     to: user.email,
@@ -49,16 +48,13 @@ const approveUser = async (req, res) => {
         // });
         res.json({ message: 'User approved' });
     } catch (error) {
-        console.log("error-0-0--",error);
         res.status(500).json({ message: 'Server error' });
     }
 };
 
 const rejectUser = async (req, res) => {
     try {
-        console.log("--------[rejectUser---------");
         const user = await User.findByIdAndDelete(req.params.id);
-        console.log("user----",user);
         if (!user) {
             return res.status(404).json({ message: 'User not found' });
         }
